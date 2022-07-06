@@ -40,6 +40,19 @@ public class AddressBook {
      }
     }
 
+    public void deleteContact(){
+        System.out.println("Enter first name and last name to delete your details ");
+        System.out.println("Enter first name");
+        String firstName = sc.next();
+        System.out.println("enter last name");
+        String lastName = sc.next();
+        for (Contact contact:list){
+            if(contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName)){
+                list.remove(contact);
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
      AddressBook addressBook = new AddressBook();
@@ -47,9 +60,11 @@ public class AddressBook {
      System.out.println("Add another contact ");
      addressBook.addNew();
      System.out.println(addressBook.list);
-
-
+     // called method for editing existing contact.
      addressBook.editContact();
+     System.out.println(addressBook.list);
+     //called method for deleting existing contact.
+     addressBook.deleteContact();
      System.out.println(addressBook.list);
 
     }
